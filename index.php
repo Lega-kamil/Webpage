@@ -1,30 +1,71 @@
+<?php
+    @$page = $_GET['page'];
+
+    if($page == "")
+
+    {
+
+        $page = "1";
+
+    }
+?>
+
 <html>
  <head>
     <title>Piwny Szczecin</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="scripts.js"></script>
+    <link rel="stylesheet" class="text/css" href="styles.css">
+    <style>
+      .button {
+         background-color: black;
+      border: black;
+      color: white;
+      padding: 7px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 15px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      }
+      .button:hover{
+         background-color: #FF6633;
+         color: white;
+      }
+      </style>
  </head>
  <body>
    <header>
-      <center>
-      zawartosc headera
-      </center>
+     <img src="assets/photos/beer.png" width="10%" height="100%">
    </header>
    <section>
-      <nav>
-         navbar
+   <nav>
+      <a class="button" href="index.php?page=1" >Główna</a>
+      <a class="button" href="index.php?page=2">Piwne Info</a> 
+      <a class="button" href="index.php?page=3">Login/rejestracja</a>
+      <a class="button" href="index.php?page=4">Twoje Konto</a>
+      <a class="button" href="index.php?page=5">Dodaj Piwo</a>
       </nav>
-
-      <div id="content">   
-       damn
-       <img src="assets/photos/1st.png">
-      </div>
    </section>
+      <div id="content">   
+        <?php
+          include($page.".php");
+        ?>
+        </div>
 
    <footer>
-     footer
+     Autor strony: Kamil Łęga
    </footer>
 
  </body>
 </html>
+<style>
+  #content{
+    width:100%;
+    height:23vh;
+    color:white;
+    text-align:center;
+}
+
+</style>
