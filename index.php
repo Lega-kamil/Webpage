@@ -10,6 +10,7 @@
     }
 ?>
 
+
 <html>
  <head>
     <title>Piwny Szczecin</title>
@@ -25,7 +26,7 @@
       text-decoration: none;
       display: inline-block;
       font-size: 15px;
-      margin: 4px 2px;
+      margin: 7px 5px;
       transition-duration: 0.4s;
       cursor: pointer;
       }
@@ -39,7 +40,6 @@
    <header>
      <img src="assets/photos/beer.png" width="10%" height="100%">
    </header>
-   <section>
    <nav>
       <a class="button" href="index.php?page=1" >Główna</a>
       <a class="button" href="index.php?page=2">Piwne Info</a> 
@@ -47,7 +47,6 @@
       <a class="button" href="index.php?page=4">Twoje Konto</a>
       <a class="button" href="index.php?page=5">Dodaj Piwo</a>
       </nav>
-   </section>
       <div id="content">   
         <?php
           include($page.".php");
@@ -60,12 +59,3 @@
 
  </body>
 </html>
-<style>
-  #content{
-    width:100%;
-    height:23vh;
-    color:white;
-    text-align:center;
-}
-
-</style>
