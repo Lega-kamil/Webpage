@@ -4,9 +4,10 @@
     font-weight: bold;
 }
 
-#content{
-    color:white;
+body{
+    background-color: black;
 }
+
 header {
     background-color: white;
     width: 100%;
@@ -23,13 +24,14 @@ nav {
     width: 100%;
     background: #FFCC33;
     border-radius: 10px;
-    border: 3px solid black;
+    border: 3px solid #D9D9D9;
     text-align: center;
 }
 
-content {
+#content {
+    text-align: center;
     width: 100%;
-    height: 100vh;
+    height:76vh;
     background: #FF6633;
     border-radius: 10px;
     border: 1px solid #e69006;

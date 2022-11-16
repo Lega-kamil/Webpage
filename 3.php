@@ -4,15 +4,27 @@ $database = 'login';
 $username = 'root';
 $password = '';
 
-mysqli_connect($hostname, $username, $password, $database);
+$conn = mysqli_connect($hostname, $username, $password, $database);
 ?>
 
-        <form action="./index.php" method="POST">
-            <p>login:<input type="text" name="imie" placeholder="LOGIN"/></p><br>
-            <p>haslo:<input type="password" name="haslo" placeholder="PASSWORD"/></p><br>
-            <input type="checkbox" name="zapis" value="yes"/>
-            <input type="submit" name="wyslij" />
-        </form>
+
+
+    <form action="./index.php?page=3" method="POST">
+        <h2>LOGOWANIE</h2>
+        <p>login:<input type="text" name="imie" placeholder="LOGIN"/></p><br>
+        <p>haslo:<input type="password" name="haslo" placeholder="PASSWORD"/></p><br>
+        <input type="checkbox" name="zapis" value="yes"/>
+        <input type="submit" name="wyslij" />
+    </form>
+    <br> <br>
+    <form action="./index.php?page=3" method="POST">
+        <h2>REJESTRACJA</h2>
+        <p>kontakt:<textarea id="kontakt" name="kontakt" placeholder="email/phone number"></textarea></p>
+        <p>login:<input type="text" name="imie" placeholder="LOGIN"/></p><br>
+        <p>haslo:<input type="password" name="haslo" placeholder="PASSWORD"/></p><br>
+        <input type="checkbox" name="zapis" value="yes"/>
+        <input type="submit" name="wyslij" />
+    </form>
 
 
 <?php
@@ -23,8 +35,10 @@ mysqli_connect($hostname, $username, $password, $database);
 if(($_POST['zapis'])==true){
     $Login = ($_POST['imie']);
     $Haslo = ($_POST['haslo']);
-    $sql = "INSERT INTO `user` (`id`, `Login`, `Haslo`)
+    $kontakt = ($_POST['kontakt']);
+    $sql = "INSERT INTO `user` (`id`, `Login`, `Haslo`,`kontakt`)
         VALUES (NULL, '$Login', '$Haslo')";
     if($result = mysqli_connect($hostname, $username, $password, $database) -> query($sql)) echo "Dodano nowe konto!";
     }
+    $conn->close();
 ?>
