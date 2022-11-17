@@ -1,3 +1,4 @@
+
 <h1>Piwne Zasoby:</h1>
 
 <table style="text-align:center;">
@@ -13,3 +14,6 @@
 </tr>
 </tbody>
 </table>
+=======
+<h2>TRESC STRONY</h2>
+
