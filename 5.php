@@ -1,12 +1,12 @@
 <?php
 $hostname = 'localhost'; // Nazwa hosta
-$database = 'Login'; // Nazwa bazy danych
+$database = 'projekt'; // Nazwa bazy danych
 $username = 'root'; // Nazwa uztytkownika
 $password = ''; // Haslo
 
 $conn = new mysqli($hostname, $username, $password, $database);
 ?>
-    <form action="./5.php" method="POST">
+    <form action="./index.php?page=5.php" method="POST">
         <h2>DODAJ PIWO</h2>
         <p>Firma/Browar:<input type="text" name="Firma" placeholder="Np:Bosman"/></p><br>
         <p>Nazwa:<input type="text" name="Nazwa" placeholder="np.Jasne Pszeniczne"/></p><br>
@@ -26,7 +26,7 @@ if(($_POST['zapis'])==true){
     $Nazwa = ($_POST['Nazwa']);
     $Rodzaj = ($_POST['Rodzaj']);
     $Opis = ($_POST['Opis']);
-    $sql = "INSERT INTO `Piwo` (`id`, `Firma`, `Nazwa`, `Rodzaj`,`Opis`)
+    $sql = "INSERT INTO `Piwo` (`id`, `producent`, `rodzaj`, `nazwa`,`Opis`)
         VALUES (NULL, '$Firma', '$Nazwa', '$Rodzaj','$Opis')";
     if($result = $conn -> query($sql)) echo "Dodano nowe Piwo!";
     }

@@ -1,6 +1,6 @@
 <?php
 $hostname = 'localhost'; // Nazwa hosta
-$database = 'Login'; // Nazwa bazy danych
+$database = 'projekt'; // Nazwa bazy danych
 $username = 'root'; // Nazwa uztytkownika
 $password = ''; // Haslo
 
