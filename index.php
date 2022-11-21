@@ -8,6 +8,16 @@
         $page = "1";
 
     }
+
+    @$id = $_GET['id'];
+
+    if($id == "")
+
+    {
+
+        $id = "-1";
+
+    }
 ?>
 
 
@@ -47,11 +57,12 @@
       <a class="button" href="index.php?page=4">Twoje Konto</a>
       <a class="button" href="index.php?page=5">Dodaj Piwo</a>
       </nav>
+
       <div id="content">   
         <?php
           include($page.".php");
         ?>
-        </div>
+      </div>
 
    <footer>
      Autor strony: Kamil Łęga
