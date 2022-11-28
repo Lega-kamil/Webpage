@@ -32,22 +32,52 @@ if(isset($_SESSION["imie"])){
 
 <?php
 
-if(($_POST['haslo']) == ($_POST['haslo1'])){
-    return(0);
-}else{
-    exit(0);
-}
-
 // rejestracja
+$regex = '^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$^';
 if(isset($_POST['register']) && isset($_POST['kontakt']) && isset($_POST['imie']) && isset($_POST['haslo'])){
     $login = ($_POST['imie']);
     $haslo = sha1($_POST['haslo']);
     $kontakt = ($_POST['kontakt']);
-    
-    $sql = "INSERT INTO `user` (`id`, `Login`, `Haslo`,`kontakt`)
-        VALUES (NULL, '$login', '$haslo','$kontakt')";
-    if($result = mysqli_connect($hostname, $username, $password, $database) -> query($sql)) echo "Dodano nowe konto!";
+    if(!empty($login) && !empty($haslo) && !empty($kontakt) && (preg_match($regex, strval($kontakt)) == 1)){
+        if(($_POST['haslo']) == ($_POST['haslo1'])){
+            $sql = "INSERT INTO `user` (`id`, `Login`, `Haslo`,`kontakt`)
+            VALUES (NULL, '$login', '$haslo','$kontakt')";
+            if($result = mysqli_connect($hostname, $username, $password, $database) -> query($sql)) echo "Dodano nowe konto!";
+        }else{
+            echo "Hasła nie są takie same";
+        }
+    }
+
+function notEmpty($funimie,$funhaslo,$funkontakt){
+    if (! empty($funimie and $funhaslo and $funkontakt)){
+        return TRUE;
+    } else{
+    return FALSE;
+    }
 }
+
+$emptyCheck = notEmpty($login, $haslo, $kontakt);
+
+$result = $conn->query("SELECT Login FROM user WHERE
+ Login = '$login'");
+if($result->num_rows == 0) {
+
+    if ($emptyCheck){
+    $sql = "INSERT INTO register VALUES('','$login', '$haslo', '$kontakt')";
+    if ($conn->query($sql)) {
+        successMessage($imie);
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    } 
+} else {
+    echo "blad";
+    } 
+} 
+}
+
+
+
+
 
 // logowanie
 if(isset($_POST['signIn']) && isset($_POST['imie']) && isset($_POST['haslo'])){
