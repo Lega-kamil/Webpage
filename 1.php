@@ -29,7 +29,7 @@ if($id < 0){
 
     if ($wynik->num_rows > 0) {
         while($row = $wynik->fetch_assoc()) {
-            echo "<tr><td>".$row["Firma"]."</td><td>"." ".$row["Nazwa"]." ".$row["Rodzaj"].'</td>
+            echo "<tr><td>".$row["producent"]."</td><td>"." ".$row["nazwa"]." ".$row["rodzaj"].'</td>
             <a href="index.php?page=1&id='.$row["id"].'">Podglad</a></tr>'.'<br>';
         }
         echo "</table>";
@@ -45,7 +45,7 @@ else
     
         if ($wynik->num_rows > 0) {
             while($row = $wynik->fetch_assoc()) {
-                echo "<tr><td>".$row["Firma"]."</td><td>"." ".$row["Opis"].$row["Nazwa"]." ".$row["Rodzaj"].'</td>.
+                echo "<tr><td>".$row["producent"]."</td><td>"." ".$row["opis"].$row["nazwa"]." ".$row["rodzaj"].'</td>.
                 .<br>';
             }
             echo "</table>";

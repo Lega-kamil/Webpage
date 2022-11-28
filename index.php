@@ -21,6 +21,7 @@
 ?>
 
 
+
 <html>
  <head>
     <title>Piwny Szczecin</title>
