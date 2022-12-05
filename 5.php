@@ -5,9 +5,10 @@ $username = 'root'; // Nazwa uztytkownika
 $password = ''; // Haslo
 
 $conn = mysqli_connect($hostname, $username, $password, $database);
-if(!isset($_SESSION["imie"])){
+/*if(!isset($_SESSION["imie"])){
     header('Location: index.php?page=3');
 }
+*/
 ?>
     <form action="./index.php?page=5" method="POST">
         <h2>DODAJ PIWO</h2>
