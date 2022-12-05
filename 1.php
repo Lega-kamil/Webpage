@@ -69,7 +69,7 @@ else
     
         if ($wynik->num_rows > 0) {
             while($row = $wynik->fetch_assoc()) {
-                echo "<tr><td> Producent: ".$row["producent"]."</td><td>"."<br> Nazwa: ".$row["nazwa"]." Rodzaj: ".$row["rodzaj"]."<br> Opis: ".$row["opis"].'</td>
+                echo "<tr><td> Producent: ".$row["producent"]."</td><td>"."<br> Nazwa: ".$row["nazwa"]." Rodzaj: ".$row["rodzaj"]."<br> Opis: ".$row["Opis"].'</td>
                 <br>';
             }
             echo "</table>";

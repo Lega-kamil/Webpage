@@ -5,10 +5,10 @@ $username = 'root'; // Nazwa uztytkownika
 $password = ''; // Haslo
 
 $conn = mysqli_connect($hostname, $username, $password, $database);
-/*if(!isset($_SESSION["imie"])){
-    header('Location: index.php?page=3');
+if(! isset($_SESSION["imie"])){
+         header('Location: index.php?page=3');
 }
-*/
+
 ?>
     <form action="./index.php?page=5" method="POST">
         <h2>DODAJ PIWO</h2>
@@ -19,7 +19,9 @@ $conn = mysqli_connect($hostname, $username, $password, $database);
         <input type="submit" name="wyslij" />
     </form>
 
-    <?php
+    
+
+<?php
     
     if(isset($_POST['wyslij']) && isset($_POST['producent']) && isset($_POST['Nazwa']) && isset($_POST['Rodzaj'])){
         $producent = ($_POST['producent']);

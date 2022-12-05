@@ -58,9 +58,9 @@ function notEmpty($funimie,$funhaslo,$funkontakt){
 
 $emptyCheck = notEmpty($login, $haslo, $kontakt);
 
-$result = $conn->query("SELECT Login FROM user WHERE
+$wynik = $conn->query("SELECT Login FROM user WHERE
  Login = '$login'");
-if($result->num_rows == 0) {
+if($wynik->num_rows == 0) {
 
     if ($emptyCheck){
     $sql = "INSERT INTO register VALUES('','$login', '$haslo', '$kontakt')";
@@ -91,12 +91,12 @@ if(isset($_POST['signIn']) && isset($_POST['imie']) && isset($_POST['haslo'])){
         if($row[1] == $login && $row[2] == $haslo){
     
         if(isset($_POST['imie'])){
-            $_SESSION["imie"] =($_POST['imie']) ;
+            @$_SESSION["imie"] =($_POST['imie']) ;
             
         }
         
         if(isset($_POST['haslo'])){
-            $_SESSION["haslo"] =($_POST['haslo']) ;
+            @$_SESSION["haslo"] =($_POST['haslo']) ;
             
         }
         header('Location: index.php?page=4');
