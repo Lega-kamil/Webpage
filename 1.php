@@ -34,7 +34,7 @@ if(isset($_POST["search"])){
     $nazwa = "nazwa";
     $producent = "producent";
     
-    $query = "SELECT * FROM piwa WHERE producent like '".@$_POST['search']."%'";
+    $query = "SELECT * FROM piwa WHERE producent like '%".@$_POST['search']."%'";
     $result = mysqli_query($conn, $query);
     while($row = mysqli_fetch_array($result)){
         $nazwa = $row['nazwa'];
@@ -47,7 +47,7 @@ if(isset($_POST["search"])){
     }
 }
 
-else if($id < 0){
+elseif($id < 0){
     $query = "SELECT * FROM piwa";
     $wynik = $conn->query($query);
 

@@ -3,11 +3,15 @@ $hostname = 'localhost'; // Nazwa hosta
 $database = 'projekt'; // Nazwa bazy danych
 $username = 'root'; // Nazwa uztytkownika
 $password = ''; // Haslo
+session_start();
 
 $conn = mysqli_connect($hostname, $username, $password, $database);
+
 if(! isset($_SESSION["imie"])){
-         header('Location: index.php?page=3');
+    header('Location: ./index.php?page=3');
 }
+    
+
 
 ?>
     <form action="./index.php?page=5" method="POST">
@@ -22,7 +26,9 @@ if(! isset($_SESSION["imie"])){
     
 
 <?php
-    
+
+
+
     if(isset($_POST['wyslij']) && isset($_POST['producent']) && isset($_POST['Nazwa']) && isset($_POST['Rodzaj'])){
         $producent = ($_POST['producent']);
         $Nazwa = ($_POST['Nazwa']);
