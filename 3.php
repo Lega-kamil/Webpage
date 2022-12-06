@@ -12,20 +12,19 @@ if(isset($_SESSION["imie"])){
 ?>
 
 
-
     <form action="./index.php?page=3" method="POST">
-        <h2>LOGOWANIE</h2>
-        <p>login:<input type="text" name="imie" placeholder="LOGIN"/></p><br>
-        <p>haslo:<input type="password" name="haslo" placeholder="PASSWORD"/></p><br>
+        <h1>LOGOWANIE</h1>
+        <p>LOGIN:<br><input type="text" name="imie" placeholder="LOGIN"/></p>
+        <p>HASŁO:<br><input type="password" name="haslo" placeholder="PASSWORD"/></p>
         <input type="submit" name="signIn" />
     </form>
-    <br> <br>
+    <br>
     <form action="./index.php?page=3" method="POST">
-        <h2>REJESTRACJA</h2>
-        <p>kontakt:<textarea id="kontakt" name="kontakt" placeholder="email/phone number"></textarea></p>
-        <p>login:<input type="text" name="imie" placeholder="LOGIN"/></p><br>
-        <p>haslo:<input type="password" name="haslo" placeholder="PASSWORD"/></p><br>
-        <p>Powtorz haslo:<input type="password" name="haslo1" placeholder="PASSWORD"/></p><br>
+        <h1>REJESTRACJA</h1>
+        <p>LOGIN:<br><input type="text" name="imie" placeholder="LOGIN"/></p>
+        <p>HASŁO:<br><input type="password" name="haslo" placeholder="PASSWORD"/></p>
+        <p>POTWIERDZ HASŁO:<br><input type="password" name="haslo1" placeholder="PASSWORD"/></p>
+        <p>KONTAKT:<br><textarea id="kontakt" name="kontakt" placeholder="email/phone number" style="width:220px ;height:60px"></textarea></p>
         <input type="submit" name="register" />
     </form>
 
@@ -44,14 +43,14 @@ $regex = '^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$^';
             $result = mysqli_query($conn,$query);
             
             if(mysqli_num_rows($result) > 0){
-                echo "blad";
+                echo "Istnieje użytkownik z tym Loginem";
             }else{
                 if(($_POST['haslo']) == ($_POST['haslo1'])){
                     $sql = "INSERT INTO `user` (`id`, `Login`, `Haslo`,`kontakt`)
                     VALUES (NULL, '$login', '$haslo','$kontakt')";
                     if($result = mysqli_connect($hostname, $username, $password, $database) -> query($sql)) echo "Dodano nowe konto!";
                 }else{
-                    echo "Hasła nie są takie same";
+                    echo "Hasła nie są takie same!";
                 }
             }
         }

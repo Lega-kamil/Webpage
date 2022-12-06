@@ -11,6 +11,7 @@ $conn = mysqli_connect($hostname, $username, $password, $database);
 if(isset($_SESSION["imie"])){
     echo "Login: " . htmlspecialchars($_SESSION["imie"]) . ". "."<br />";
     echo "Haslo: " . htmlspecialchars($_SESSION["haslo"]) . ". "."<br />";
+ //   echo "Kontakt: ". 
 
 }else{
     header('Location: index.php?page=3');
